@@ -1,0 +1,25 @@
+Jenkins Setup in Linux
+
+1. wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+2. rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+3. yum install epel-release
+4. sudo amazon-linux-extras install epel -y
+5. amazon-linux-extras install java-openjdk11 -y
+6. yum install jenkins -y
+7. systemctl start jenkins
+8. systemctl enable jenkins
+9. systemctl status jenkins 
+10. yum install firewall* -y
+11. systemctl start firewalld
+12. systemctl enable firewalld
+13. systemctl status firewalld
+14. firewall-cmd --zone=public --add-port=8080/tcp --permanent
+15. firewall-cmd --zone=public --add-service=http --permanent
+16. firewall-cmd --reload
+17. firewall-cmd --list-all
+18. Open browser-->type <publicip>:8080-->login with username and passwoard.
+19. copy /var/lib/jenkins/secrets/initialAdminPassword --->path
+20. in Linux--> #cat /var/lib/jenkins/secrets/initialAdminPassword Copy code and paste into
+jenkins browser and install plugins
+21.vi /etc/ssh/sshd_config
+22.ssh-keygen
